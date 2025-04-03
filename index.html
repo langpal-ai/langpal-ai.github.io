@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LangPal - Your Free AI Language Practice Partner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .speech-bubble {
+            position: relative;
+            background: white;
+            border-radius: 1rem;
+        }
+        .speech-bubble:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 20px;
+            border-width: 10px 10px 0;
+            border-style: solid;
+            border-color: white transparent;
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Navigation -->
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center">
+                <i class="fas fa-comments text-white text-xl"></i>
+            </div>
+            <span class="text-xl font-bold text-gray-800">LangPal</span>
+        </div>
+        <div class="hidden md:flex space-x-8">
+            <a href="#features" class="hover:text-blue-600 transition">Features</a>
+            <a href="#how-it-works" class="hover:text-blue-600 transition">How It Works</a>
+            <a href="#faq" class="hover:text-blue-600 transition">FAQ</a>
+        </div>
+        <div>
+            <button class="gradient-bg text-white px-6 py-2 rounded-full hover:opacity-90 transition shadow-lg">
+                Start Free
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="container mx-auto px-6 py-16 md:py-24 flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-12 md:mb-0">
+            <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+                Speak a new language <span class="text-blue-600">with confidence</span>
+            </h1>
+            <p class="text-lg text-gray-600 mb-8">
+                LangPal is your completely free AI-powered language practice partner. Enter any dialogue and start practicing real conversations through interactive role-play scenarios.
+            </p>
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                <button class="gradient-bg text-white px-8 py-3 rounded-full hover:opacity-90 transition shadow-lg font-medium">
+                    Start Practicing Now
+                </button>
+                <button class="border-2 border-gray-300 px-8 py-3 rounded-full hover:bg-gray-50 transition font-medium">
+                    Watch Demo
+                </button>
+            </div>
+            <div class="mt-8 flex items-center">
+                <div class="flex -space-x-2">
+                    <img src="https://randomuser.me/api/portraits/women/12.jpg" class="w-10 h-10 rounded-full border-2 border-white">
+                    <img src="https://randomuser.me/api/portraits/men/43.jpg" class="w-10 h-10 rounded-full border-2 border-white">
+                    <img src="https://randomuser.me/api/portraits/women/67.jpg" class="w-10 h-10 rounded-full border-2 border-white">
+                </div>
+                <div class="ml-4">
+                    <p class="text-sm text-gray-600">Join <span class="font-bold">10,000+</span> language learners</p>
+                </div>
+            </div>
+        </div>
+        <div class="md:w-1/2 relative">
+            <div class="relative max-w-md mx-auto">
+                <div class="absolute -top-8 -left-8 w-32 h-32 bg-blue-100 rounded-full opacity-70"></div>
+                <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-purple-100 rounded-full opacity-70"></div>
+                <div class="relative bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center">
+                                <i class="fas fa-robot text-white"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="font-medium">LangPal AI</p>
+                                <p class="text-xs text-gray-500">Responding...</p>
+                            </div>
+                        </div>
+                        <div class="speech-bubble p-4 mb-4">
+                            <p>Hello! I'm your LangPal. What would you like to practice today? You can choose any scenario - ordering food, job interviews, or casual conversations!</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
+                                <i class="fas fa-user text-gray-600"></i>
+                            </div>
+                            <div class="ml-3 flex-1">
+                                <div class="bg-gray-100 rounded-full px-4 py-2">
+                                    <p class="text-gray-500 italic">Type your response...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 px-6 py-3 flex justify-between items-center">
+                        <div class="flex space-x-4">
+                            <button class="text-gray-500 hover:text-blue-600">
+                                <i class="fas fa-microphone"></i>
+                            </button>
+                            <button class="text-gray-500 hover:text-blue-600">
+                                <i class="fas fa-language"></i>
+                            </button>
+                        </div>
+                        <button class="text-blue-600 font-medium">
+                            Send <i class="fas fa-paper-plane ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute -right-10 -bottom-10 w-24 h-24 bg-yellow-100 rounded-full animate-float hidden lg:block"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Practice Anywhere, Anytime</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    LangPal adapts to your learning style with powerful features that make language practice natural and effective.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card bg-white p-8 rounded-xl transition duration-300">
+                    <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-random text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Custom Scenarios</h3>
+                    <p class="text-gray-600">
+                        Input any dialogue or situation you want to practice. From business meetings to travel conversations, LangPal adapts to your needs.
+                    </p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-xl transition duration-300">
+                    <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-robot text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">AI Role-Play</h3>
+                    <p class="text-gray-600">
+                        Our AI plays different roles in conversations, helping you prepare for real-life interactions with native speakers.
+                    </p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-xl transition duration-300">
+                    <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Instant Feedback</h3>
+                    <p class="text-gray-600">
+                        Get corrections and suggestions on your pronunciation, grammar, and vocabulary immediately after each practice session.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">How LangPal Works</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Start speaking confidently in just 3 simple steps
+                </p>
+            </div>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <div class="relative max-w-md mx-auto">
+                        <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" 
+                             alt="Language learning" 
+                             class="rounded-xl shadow-xl">
+                        <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg">
+                            <div class="w-14 h-14 gradient-bg rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <div class="mb-8 flex">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-full gradient-bg text-white font-bold text-xl">
+                                1
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-bold mb-2">Choose Your Scenario</h3>
+                            <p class="text-gray-600">
+                                Select from our library of common situations or create your own custom dialogue to practice.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mb-8 flex">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-full gradient-bg text-white font-bold text-xl">
+                                2
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-bold mb-2">Start the Conversation</h3>
+                            <p class="text-gray-600">
+                                Begin speaking or typing your responses. LangPal will adapt to your pace and language level.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-full gradient-bg text-white font-bold text-xl">
+                                3
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-bold mb-2">Receive Feedback</h3>
+                            <p class="text-gray-600">
+                                Get instant corrections and suggestions to improve your fluency and accuracy.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 gradient-bg text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready to Speak with Confidence?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+                Join thousands of language learners improving their speaking skills with our completely free platform
+            </p>
+            <button class="bg-white text-blue-600 px-8 py-3 rounded-full hover:bg-gray-100 transition font-bold shadow-lg">
+                Start Practicing Now
+            </button>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Everything you need to know about LangPal
+                </p>
+            </div>
+            <div class="max-w-3xl mx-auto">
+                <div class="mb-6 border-b pb-4">
+                    <button class="flex justify-between items-center w-full text-left font-medium">
+                        <span>Is LangPal really free?</span>
+                        <i class="fas fa-chevron-down text-blue-600"></i>
+                    </button>
+                    <div class="mt-2 text-gray-600">
+                        Yes! LangPal is completely free with no hidden costs. We believe language learning should be accessible to everyone, so we offer all our features at no charge.
+                    </div>
+                </div>
+                <div class="mb-6 border-b pb-4">
+                    <button class="flex justify-between items-center w-full text-left font-medium">
+                        <span>Which languages does LangPal support?</span>
+                        <i class="fas fa-chevron-down text-blue-600"></i>
+                    </button>
+                    <div class="mt-2 text-gray-600">
+                        Currently, LangPal supports English, Spanish, French, German, Italian, Portuguese, Japanese, and Mandarin Chinese. We're constantly adding more languages based on user demand.
+                    </div>
+                </div>
+                <div class="mb-6 border-b pb-4">
+                    <button class="flex justify-between items-center w-full text-left font-medium">
+                        <span>How does the AI role-play work?</span>
+                        <i class="fas fa-chevron-down text-blue-600"></i>
+                    </button>
+                    <div class="mt-2 text-gray-600">
+                        Our AI can take on different personas (waiter, interviewer, friend, etc.) and respond naturally to your input. You can specify the scenario and the AI will adapt its responses accordingly to create a realistic conversation experience.
+                    </div>
+                </div>
+                <div class="mb-6 border-b pb-4">
+                    <button class="flex justify-between items-center w-full text-left font-medium">
+                        <span>Can I use LangPal without speaking?</span>
+                        <i class="fas fa-chevron-down text-blue-600"></i>
+                    </button>
+                    <div class="mt-2 text-gray-600">
+                        Absolutely! While we encourage speaking practice for the best results, you can also type your responses if you're in a situation where you can't speak aloud.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center">
+                            <i class="fas fa-comments text-white"></i>
+                        </div>
+                        <span class="text-xl font-bold">LangPal</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Your completely free AI-powered language practice partner helping you speak with confidence.
+                    </p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Product</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Features</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Languages</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Download</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Help Center</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Community</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>© 2023 LangPal. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ toggle functionality
+        document.querySelectorAll('#faq button').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                if (answer.style.maxHeight) {
+                    answer.style.maxHeight = null;
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                } else {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                }
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
